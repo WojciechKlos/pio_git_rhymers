@@ -2,9 +2,12 @@ package edu.kis.vh.nursery;
 
 public class DefaultCountingOutRhymer {
 
-    private int[] numbers = new int[12];
+    private static final int MAX_STACK_SIZE = 12;
+    private static final int INVALID_STACK_VALUE = -1;
+    public static final int EMPTY_STACK_INDICATOR = -1;
 
-    private int total = -1;
+    private int[] numbers = new int[MAX_STACK_SIZE];
+    public int total = EMPTY_STACK_INDICATOR;
 
     /**
      *
@@ -16,19 +19,21 @@ public class DefaultCountingOutRhymer {
             numbers[++total] = in;
     }
 
+
     /**
      *
      * Metoda sprawdza, czy stos jest pusty. Zwraca wartość true,
      * jeśli zmienna total ma wartość -1, co oznacza, że żaden element nie został jeszcze dodany.
      */
-    public boolean callCheck() { return total == -1; }
+    public boolean callCheck() { return total == EMPTY_STACK_INDICATOR; }
 
     /**
      *
      * Metoda ta weryfikuje, czy stos jest pełny. Zwraca true,
      * jeśli wartość total wynosi 11, czyli tablica numbers osiągnęła maksymalny rozmiar (12 elementów, indeksy 0-11).
      */
-    public boolean isFull() { return total == 11; }
+    public boolean isFull() { return total == MAX_STACK_SIZE-1; }
+
 
     /**
      *
@@ -36,7 +41,7 @@ public class DefaultCountingOutRhymer {
      */
     protected int peekaboo() {
         if (callCheck())
-            return -1;
+            return INVALID_STACK_VALUE;
         return numbers[total];
     }
 
@@ -46,7 +51,7 @@ public class DefaultCountingOutRhymer {
      */
     public int countOut() {
         if (callCheck())
-            return -1;
+            return INVALID_STACK_VALUE;
         return numbers[total--];
     }
 
