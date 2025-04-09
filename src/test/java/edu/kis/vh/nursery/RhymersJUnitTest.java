@@ -74,5 +74,5 @@ public class RhymersJUnitTest {
         result = rhymer.countOut();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
     }
-
+// Wyszstkie testy [5 na 5] są poprawne
 }
