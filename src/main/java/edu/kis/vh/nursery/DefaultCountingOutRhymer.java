@@ -4,7 +4,7 @@ package edu.kis.vh.nursery;
  * Prosta implementacja stosu o stałym rozmiarze 12 elementów.
  * Umożliwia dodawanie, pobieranie i podgląd ostatniego elementu.
  */
-public class defaultCountingOutRhymer {
+public class DefaultCountingOutRhymer {
 
     private static final int MAX_STACK_SIZE = 12;
     private static final int INVALID_STACK_VALUE = -1;
